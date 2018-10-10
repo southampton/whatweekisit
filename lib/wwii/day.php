@@ -137,9 +137,10 @@ class Day
 		foreach($this->g->allOfType("http://id.southampton.ac.uk/ns/AcademicSession") as $res)
 		{
 			if(!($res->has("http://purl.org/NET/c4dm/timeline.owl#beginsAtDateTime"))) { continue; }
+			if(!($res->has("http://purl.org/NET/c4dm/timeline.owl#endsAtDateTime"))) { continue; }
 			$dt_st = strtotime("" . $res->get("http://purl.org/NET/c4dm/timeline.owl#beginsAtDateTime"));
 			$dt_ed = strtotime("" . $res->get("http://purl.org/NET/c4dm/timeline.owl#endsAtDateTime"));
-			if(($dt < $dt_st) | ($dt > $dt_ed)) { continue; }
+			if(($dt < $dt_st) || ($dt > $dt_ed)) { continue; }
 
 			$this->year_start = $dt_st;
 			$this->year_end = $dt_ed;
