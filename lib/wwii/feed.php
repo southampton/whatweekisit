@@ -68,8 +68,8 @@ class Feed {
 		}
 		usort($terms, "sort_by_start");
 		$c = count($terms);
-		$i = 1;
-		for($i = 1; $i < $c; $i++)
+		$i = 0;
+		for($i = 0; $i < $c; $i++)
 		{
 
 			$dts = $terms[$i]['start'];
